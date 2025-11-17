@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const EmployeeTable = ({ employees = [], pagination, fetchEmployees, handleUpdateEmployee, handleDeleteEmployee }) => {
+const EmployeeTable = ({ employees = [], pagination={}, fetchEmployees, handleUpdateEmployee, handleDeleteEmployee }) => {
   const headers = ["Name", "Email", "Phone", "Department", "Actions"];
   const { totalEmployees, totalPages, currentPage, pageSize } = pagination;
 

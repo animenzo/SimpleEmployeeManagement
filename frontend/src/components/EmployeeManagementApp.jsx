@@ -7,12 +7,12 @@ import { notify } from "../utils";
 
 const EmployeeManagementApp = () => {
   const [showModal, setShowModal] = React.useState(false);
-  const [updateEmpObj, setUpdateEmpObj] = React.useState(false);
+  const [updateEmpObj, setUpdateEmpObj] = React.useState(null);
   const [employeeData, setEmployeeData] = React.useState({
     employees: [],
     pagination: {
       totalEmployees: 0,
-      totalPages: 1,
+      totalPages: 0,
       currentPage: 1,
       pageSize: 5,
     },
@@ -22,7 +22,7 @@ const EmployeeManagementApp = () => {
     try {
       const data = await GetAllEmployees(search, page, limit);
       // console.log(data.data);
-      setEmployeeData(data.data);
+      setEmployeeData(data);
     } catch (error) {
       console.log("error fetch emp", error);
     }
@@ -83,7 +83,7 @@ const EmployeeManagementApp = () => {
               >
                 + Add Employee
               </button>
-              <span className="text-sm text-zinc-500 dark:text-zinc-400">Total: {employeeData?.pagination?.totalEmployees ?? 0}</span>
+              
             </div>
 
             <div className="w-full md:w-1/3">
