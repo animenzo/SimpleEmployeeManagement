@@ -1,7 +1,7 @@
 
 
 
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = "https://simple-task-manager-backend-delta.vercel.app/";
 export const GetAllEmployees = async (search="",page=1,limit=5) => {
     const url = `${BASE_URL}/api/employees?search=${search}&page=${page}&limit=${limit}`;
     try {
